@@ -1,0 +1,77 @@
+## Activity File: Exploring Kibana
+
+* You are a DevOps professional and have set up monitoring for one of your web servers. You are collecting all sorts of web log data and it is your job to review the data regularly to make sure everything is running smoothly. 
+
+* Today, you notice something strange in the logs and you want to take a closer look.
+
+* Your task: Explore the web server logs to see if there's anything unusual. Specifically, you will:
+
+:warning: **Heads Up**: These sample logs are specific to the time you view them. As such, your answers will be different from the answers provided in the solution file. 
+
+---
+
+### Instructions
+
+1. Add the sample web log data to Kibana.
+
+2. Answer the following questions:
+
+    - In the last 7 days, how many unique visitors were located in India?
+
+There were 226 unique visitors.
+
+    - In the last 24 hours, of the visitors from China, how many were using Mac OSX?
+
+Nine users were using mac osx
+
+    - In the last 2 days, what percentage of visitors received 404 errors? How about 503 errors?
+100 percent of people got 404 errors in the last two days. 100 percent of people received 503 errors in the last two days.
+
+
+    - In the last 7 days, what country produced the majority of the traffic on the website?
+
+China was the majority of the traffic in the last seven days.
+
+    - Of the traffic that's coming from that country, what time of day had the highest amount of activity?
+
+10AM had the highest amount of traffic.
+  
+  - List all the types of downloaded files that have been identified for the last 7 days, along with a short description of each file type (use Google if you aren't sure about a particular file type).
+
+CSS a cascading style sheet used for formatting contents of a webpage. Deb is a Debian archive file the can contain executables, libraries and documentation associated with a program. Gz is a gzip file and is an archive file. Rpm is an installation package. Zip is a compressed file archive.
+
+3. Now that you have a feel for the data, Let's dive a bit deeper. Look at the chart that shows Unique Visitors Vs. Average Bytes.
+     - Locate the time frame in the last 7 days with the most amount of bytes (activity).
+9pm is the most active hour with 10735 bytes by 3 users
+
+     - In your own words, is there anything that seems potentially strange about this activity?
+
+There is a large amount of traffic from 3 users meaning it could be a potential Dos attack.
+
+
+4. Filter the data by this event.
+     - What is the timestamp for this event? 11/28/2021@21:00:00:000-11/29/2021@00:00:00:000
+     - What kind of file was downloaded? There was no files just data useage
+     - From what country did this activity originate? China
+     - What HTTP response codes were encountered by this visitor? Error code 200
+
+5. Switch to the Kibana Discover page to see more details about this activity.
+     - What is the source IP address of this activity? 223.112.248.233
+     - What are the geo coordinates of this activity? 
+{
+  "lat": 37.85008167,
+  "lon": -83.84575194
+}
+     - What OS was the source machine running? Mac OSX 
+     - What is the full URL that was accessed? http://www.elastic.co/downloads/apm
+     - From what website did the visitor's traffic originate? http://nytimes.com/warning/georgi-beregovoi
+
+6. Finish your investigation with a short overview of your insights. 
+
+     - What do you think the user was doing? I think it was a DoS attack
+     - Was the file they downloaded malicious? If not, what is the file used for? My kibana doesn’t list the file just says that there was data movement. So definity malicious
+     - Is there anything that seems suspicious about this activity? The high volume of traffic from a single IP
+     - Is any of the traffic you inspected potentially outside of compliance guidlines?  I think it does because they were generating a large amount of traffic from a single IP. This could overload a server.
+
+---
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.  
